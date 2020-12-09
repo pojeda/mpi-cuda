@@ -10,6 +10,12 @@
  
  extern "C" void print_gpu()
 {
+int nDevices; 
+
+     cudaGetDeviceCount(&nDevices);
+     printf("Nr. GPUs %d \n", nDevices);
+
      __print_kernel__ <<<1,1>>> ();
+
      cudaDeviceSynchronize();
 }
